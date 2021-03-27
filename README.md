@@ -1,2 +1,6 @@
 # kotlin-mvvm-coroutines-koin
-This is practical test
+#MVVM
+#Kotlin
+#Room
+#Retrofit
+#Koin
