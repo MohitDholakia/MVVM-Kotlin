@@ -1,8 +1,9 @@
-package com.md.demo.view.main
+package com.md.demo.view.activity.main
 
 import android.os.Bundle
 import com.md.demo.R
 import com.md.demo.view.BaseActivity
+import com.md.demo.view.fragment.list.ListFragment
 import org.koin.android.architecture.ext.viewModel
 
 

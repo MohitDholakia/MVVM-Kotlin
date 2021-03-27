@@ -1,4 +1,4 @@
-package com.md.demo.view.main
+package com.md.demo.view.fragment.listdetail
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.md.demo.R
 import com.md.demo.databinding.FragmentDetailBinding
 import com.md.demo.view.BaseFragment
+import com.md.demo.view.activity.main.MainViewModel
 import kotlinx.android.synthetic.main.fragment_detail.*
 import org.koin.android.architecture.ext.viewModel
 

@@ -1,4 +1,4 @@
-package com.md.demo.view.main
+package com.md.demo.view.fragment.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import com.md.demo.misc.ext.gone
 import com.md.demo.misc.ext.observe
 import com.md.demo.misc.ext.visible
 import com.md.demo.view.BaseFragment
-import kotlinx.android.synthetic.main.fragment_detail.*
+import com.md.demo.view.activity.main.MainViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.yesButton

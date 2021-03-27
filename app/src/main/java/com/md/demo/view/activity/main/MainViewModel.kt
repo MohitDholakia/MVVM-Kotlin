@@ -1,4 +1,4 @@
-package com.md.demo.view.main
+package com.md.demo.view.activity.main
 
 import android.arch.lifecycle.MutableLiveData
 import android.databinding.ObservableField

@@ -5,7 +5,7 @@
 
         <variable
             name="viewmodel"
-            type="com.md.demo.view.main.MainViewModel" />
+            type="com.md.demo.view.activity.main.MainViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

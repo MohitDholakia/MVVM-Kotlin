@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.md.demo.R
 import com.md.demo.data.model.ResponseBean
-import com.md.demo.view.main.ListDetailFragment
-import com.md.demo.view.main.MainActivity
+import com.md.demo.view.fragment.listdetail.ListDetailFragment
+import com.md.demo.view.activity.main.MainActivity
 import kotlinx.android.synthetic.main.row_list.view.*
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.RecyclerViewAdapterViewHolder>() {
@@ -29,11 +29,12 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.RecyclerViewAdapterViewHold
 
     override fun onBindViewHolder(holder: RecyclerViewAdapterViewHolder, position: Int) {
         val data = dataList[position]
-
         holder.textViewTitle.text = data.title
+
         if(data.rating!=null){
             holder.ratingBar.numStars = data.rating!!
         }
+
         Glide.with(holder.textViewTitle.context)
                 .load(data.img.first().image)
                 .into(holder.imgLogo)
@@ -54,7 +55,6 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.RecyclerViewAdapterViewHold
     override fun getItemCount(): Int = dataList.size
 
     inner class RecyclerViewAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val textViewTitle = itemView.textViewTitle
         val ratingBar = itemView.ratingBar
         val imgLogo = itemView.imgLogo
