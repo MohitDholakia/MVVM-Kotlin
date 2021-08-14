@@ -2,9 +2,7 @@ package com.md.demo.misc
 
 import okhttp3.OkHttpClient
 import java.security.cert.CertificateException
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
+import javax.net.ssl.*
 
 class UnsafeOkHttpClient {
     companion object {
@@ -33,7 +31,7 @@ class UnsafeOkHttpClient {
 
                 val builder = OkHttpClient.Builder()
                 builder.sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
-                builder.hostnameVerifier { _, _ -> true }
+                builder.hostnameVerifier(HostnameVerifier { p0, p1 -> true })
 
                 return builder
             } catch (e: Exception) {
