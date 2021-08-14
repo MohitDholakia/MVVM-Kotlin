@@ -8,10 +8,10 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Looper
 import android.provider.MediaStore
-import android.support.annotation.ColorRes
-import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
+import androidx.annotation.ColorRes
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 import android.widget.Toast
 
 

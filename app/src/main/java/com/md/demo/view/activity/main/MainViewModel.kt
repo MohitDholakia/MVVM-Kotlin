@@ -1,7 +1,7 @@
 package com.md.demo.view.activity.main
 
-import android.arch.lifecycle.MutableLiveData
-import android.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
+import androidx.databinding.ObservableField
 import com.md.demo.data.ResponseRepository
 import com.md.demo.data.model.ResponseBean
 import com.md.demo.view.AbstractViewModel

@@ -1,6 +1,6 @@
 package com.md.demo.misc.ext
 
-import android.support.annotation.StringDef
+import androidx.annotation.StringDef
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText

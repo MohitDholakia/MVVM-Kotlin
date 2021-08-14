@@ -1,9 +1,9 @@
 package com.md.demo.misc.ext
 
-import android.support.design.widget.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 fun BottomSheetBehavior<*>.isExpanded(): Boolean {
-    return state == android.support.design.widget.BottomSheetBehavior.STATE_EXPANDED
+    return state == com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
 }
 
 fun BottomSheetBehavior<*>.isHidden(): Boolean {
@@ -11,11 +11,11 @@ fun BottomSheetBehavior<*>.isHidden(): Boolean {
 }
 
 fun BottomSheetBehavior<*>.expand() {
-    state = android.support.design.widget.BottomSheetBehavior.STATE_EXPANDED
+    state = com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
 }
 
 fun BottomSheetBehavior<*>.hide() {
-    state = android.support.design.widget.BottomSheetBehavior.STATE_HIDDEN
+    state = com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN
 }
 
 fun BottomSheetBehavior<*>.toggle() {

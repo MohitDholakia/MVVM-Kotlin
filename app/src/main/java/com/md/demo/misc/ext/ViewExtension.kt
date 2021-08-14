@@ -1,10 +1,10 @@
 package com.md.demo.misc.ext
 
 import android.content.res.ColorStateList
-import android.support.annotation.ColorInt
-import android.support.design.widget.Snackbar
-import android.support.design.widget.TextInputEditText
-import android.support.design.widget.TextInputLayout
+import androidx.annotation.ColorInt
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import android.view.View
 import android.widget.FrameLayout
 import timber.log.Timber
