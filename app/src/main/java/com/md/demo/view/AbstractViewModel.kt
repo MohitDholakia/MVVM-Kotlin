@@ -11,6 +11,7 @@ abstract class AbstractViewModel : ViewModel() {
     /**
      * Handle data loading
      */
+    
     val isDataLoading = MutableLiveData<Boolean>()
 
     /**
