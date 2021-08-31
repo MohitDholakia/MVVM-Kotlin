@@ -7,13 +7,15 @@
 package com.md.demo.data.model
 
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
 import com.md.demo.data.local.ResConverter
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 @Entity(tableName = "responseBean")
 data class ResponseBean(
         @PrimaryKey(autoGenerate = true)
@@ -46,7 +48,7 @@ data class ResponseBean(
         var title: String? = null,
         @SerializedName("updated_at")
         var updatedAt: String? = null
-) {
+) : Parcelable {
     constructor() : this(0, "", "", "", "", "", arrayListOf(), "")
 }
 

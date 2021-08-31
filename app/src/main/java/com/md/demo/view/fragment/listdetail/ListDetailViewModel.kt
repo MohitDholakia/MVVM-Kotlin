@@ -1,4 +1,4 @@
-package com.md.demo.view.activity.main
+package com.md.demo.view.fragment.listdetail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.databinding.ObservableField
@@ -9,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val repository: ResponseRepository) : AbstractViewModel() {
+class ListDetailViewModel(private val repository: ResponseRepository) : AbstractViewModel() {
+    val model = ObservableField<ResponseBean>()
 
 }

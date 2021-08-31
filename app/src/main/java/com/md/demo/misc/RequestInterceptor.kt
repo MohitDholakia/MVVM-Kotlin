@@ -1,8 +1,8 @@
 package com.md.demo.misc
 
+import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Response
-import timber.log.Timber
 
 class RequestInterceptor : Interceptor {
 
@@ -22,7 +22,7 @@ class RequestInterceptor : Interceptor {
 //                newRequest?.addHeader(RemoteConstants.AUTHORIZATION, it.token)
 //            }
         } catch (ex: Throwable) {
-            Timber.w(ex, "Erro ao consultar token para o interceptop")
+            Log.d("WARN", "Interceptor \n$ex")
         }
 
         return chain?.proceed(newRequest!!.build())!!

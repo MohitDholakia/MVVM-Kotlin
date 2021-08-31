@@ -17,4 +17,10 @@ interface ResponseDao {
 
     @Query("DELETE FROM responseBean")
     fun deleteAll()
+
+    @Query("SELECT * FROM responseBean WHERE id = :id")
+    fun findResponseById(id: Int): ResponseBean
+
+    @Query("SELECT COUNT(id) FROM responseBean")
+    fun getCount(): Int
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcome_nav"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.md.demo.view.fragment.list.ListFragment"
+        android:label="list_fragment"
+        tools:layout="@layout/fragment_list">
+
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/detailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.md.demo.view.fragment.listdetail.ListDetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="modelClass"
+            app:argType="com.md.demo.data.model.ResponseBean" />
+        <action
+            android:id="@+id/action_detailFragment_to_imageActivity"
+            app:destination="@id/imageActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/imageActivity"
+        android:name="com.md.demo.view.activity.image.ImageActivity"
+        android:label="ImageActivity" />
+
+</navigation>

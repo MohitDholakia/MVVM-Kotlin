@@ -1,9 +1,3 @@
-/*************************************************
- * Created by Efendi Hariyadi on 23/3/21 11:07 PM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 23/3/21 11:07 PM
- ************************************************/
-
 package com.md.demo.data.remote.dto
 
 

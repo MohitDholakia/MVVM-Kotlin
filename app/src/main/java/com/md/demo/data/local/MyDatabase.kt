@@ -7,7 +7,7 @@ import androidx.room.TypeConverters
 import android.content.Context
 import com.md.demo.data.model.ResponseBean
 
-@Database(entities = arrayOf(ResponseBean::class), version = 2, exportSchema = false)
+@Database(entities = [ResponseBean::class], version = 2, exportSchema = false)
 @TypeConverters(ResConverter::class)
 abstract class MyDatabase : RoomDatabase() {
 

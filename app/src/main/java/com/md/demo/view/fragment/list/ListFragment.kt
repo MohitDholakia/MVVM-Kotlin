@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.md.demo.R
 import com.md.demo.adapter.ListAdapter
 import com.md.demo.misc.ext.gone
@@ -17,17 +18,19 @@ import org.jetbrains.anko.yesButton
 import org.koin.android.architecture.ext.viewModel
 
 class ListFragment : BaseFragment() {
-    private val viewModel: MainViewModel by viewModel()
+    val viewModel: ListViewModel by viewModel()
 
-    private var adapter: ListAdapter = ListAdapter()
+    private lateinit var adapter: ListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getList()
 
+        adapter = ListAdapter(this)
         setupRecyclerView()
         setupObservers()
     }
@@ -57,9 +60,6 @@ class ListFragment : BaseFragment() {
 
     private fun showErrorMessage(message: String?) {
         message?.let {
-            alert(message, getString(R.string.error)) {
-                yesButton { }
-            }.show()
             viewModel.exception.value = null
         }
     }

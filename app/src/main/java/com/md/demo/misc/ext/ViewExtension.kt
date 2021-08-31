@@ -1,13 +1,13 @@
 package com.md.demo.misc.ext
 
 import android.content.res.ColorStateList
+import android.util.Log
 import androidx.annotation.ColorInt
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import android.view.View
 import android.widget.FrameLayout
-import timber.log.Timber
 
 fun View.visible() {
     this.visibility = View.VISIBLE
@@ -86,7 +86,7 @@ fun TextInputEditText.setInputTextLayoutColor(@ColorInt color: Int) {
         fFocusedTextColor.isAccessible = true
         fFocusedTextColor.set(layout, ColorStateList(arrayOf(intArrayOf(0)), intArrayOf(color)))
     } catch (e: Exception) {
-        Timber.e(e)
+        Log.e("ERROR",e.message)
     }
 
 }
