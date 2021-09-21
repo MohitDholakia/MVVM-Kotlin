@@ -1,7 +1,7 @@
 package com.md.demo.view
 
 /**
- * Created by Maicon Hellmann on 28/07/2017.
+ * Created by Mohit Dholakia
  */
 class ViewConstants {
     companion object {
