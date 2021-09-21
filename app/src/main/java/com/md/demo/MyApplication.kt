@@ -18,10 +18,10 @@ class MyApplication : Application() {
             Timber.plant(DebugTree())
         }
 
-        startKoin(this, listOf(
+        /*startKoin(this, listOf(
                 remoteDatasourceModule,
                 localDataSourceModule,
                 repositoryModule,
-                viewModelModule))
+                viewModelModule))*/
     }
 }
