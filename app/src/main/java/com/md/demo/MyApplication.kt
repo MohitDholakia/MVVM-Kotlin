@@ -14,9 +14,9 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        if (BuildConfig.DEBUG) {
+        /*if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
-        }
+        }*/
 
         startKoin(this, listOf(
                 remoteDatasourceModule,
