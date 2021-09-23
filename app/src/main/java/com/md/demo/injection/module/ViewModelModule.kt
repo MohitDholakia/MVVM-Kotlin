@@ -7,7 +7,7 @@ import org.koin.android.architecture.ext.viewModel
 import org.koin.dsl.module.applicationContext
 
 val viewModelModule = applicationContext {
-    viewModel { MainViewModel(get()) }
-    viewModel { ListViewModel(get()) }
-    viewModel { ListDetailViewModel(get()) }
+        viewModel { MainViewModel(get()) }
+        viewModel { ListViewModel(get()) }
+        viewModel { ListDetailViewModel(get()) }
 }

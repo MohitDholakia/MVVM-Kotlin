@@ -2,91 +2,99 @@ package com.md.demo.misc.ext
 
 import android.content.res.ColorStateList
 import android.util.Log
+import android.view.View
+import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import android.view.View
-import android.widget.FrameLayout
 
 fun View.visible() {
-    this.visibility = View.VISIBLE
+        this.visibility = View.VISIBLE
 }
 
-fun View.visible(visible: Boolean) {
-    if (visible) {
-        visible()
-    } else {
-        gone()
-    }
+fun View.visible(visible : Boolean) {
+        if (visible) {
+                visible()
+        } else {
+                gone()
+        }
 }
 
 fun View.gone() {
-    this.visibility = View.GONE
+        this.visibility = View.GONE
 }
 
 fun View.invisible() {
-    this.visibility = View.INVISIBLE
+        this.visibility = View.INVISIBLE
 }
 
-fun View.isVisible(): Boolean {
-    return visibility == View.VISIBLE
+fun View.isVisible() : Boolean {
+        return visibility == View.VISIBLE
 }
 
-fun View.isGone(): Boolean {
-    return visibility == View.GONE
+fun View.isGone() : Boolean {
+        return visibility == View.GONE
 }
 
-fun View.isInvisible(): Boolean {
-    return visibility == View.INVISIBLE
+fun View.isInvisible() : Boolean {
+        return visibility == View.INVISIBLE
 }
 
-fun View.snackbar(resId: Int, duration: Int = Snackbar.LENGTH_SHORT) {
-    snackbar(this.resources.getString(resId), duration)
+fun View.snackbar(resId : Int, duration : Int = Snackbar.LENGTH_SHORT) {
+        snackbar(this.resources.getString(resId), duration)
 }
 
-fun View.snackbar(msg: String, duration: Int = Snackbar.LENGTH_SHORT) {
-    Snackbar.make(this, msg, duration).show()
+fun View.snackbar(msg : String, duration : Int = Snackbar.LENGTH_SHORT) {
+        Snackbar.make(this, msg, duration).show()
 }
 
-fun View.longSnackbar(resId: Int) {
-    snackbar(resId, Snackbar.LENGTH_LONG)
+fun View.longSnackbar(resId : Int) {
+        snackbar(resId, Snackbar.LENGTH_LONG)
 }
 
 
-fun TextInputEditText.setTextEx(text: CharSequence?) {
-    this.setText(text)
-/*
-    if(text?.toString()?.isEmpty() == true){
-        setInputTextLayoutColor(Color.RED)
-    }else{
-        setInputTextLayoutColor(Color.LTGRAY)
-    }
-    */
+fun TextInputEditText.setTextEx(text : CharSequence?) {
+        this.setText(text)
+        /*
+            if(text?.toString()?.isEmpty() == true){
+                setInputTextLayoutColor(Color.RED)
+            }else{
+                setInputTextLayoutColor(Color.LTGRAY)
+            }
+            */
 }
 
-fun TextInputEditText.setInputTextLayoutColor(@ColorInt color: Int) {
-    try {
+fun TextInputEditText.setInputTextLayoutColor(@ColorInt color : Int) {
+        try {
 
-        val layout = if (parent is FrameLayout) {
-            parent.parent as TextInputLayout
-        } else {
-            parent as TextInputLayout
+                val layout = if (parent is FrameLayout) {
+                        parent.parent as TextInputLayout
+                } else {
+                        parent as TextInputLayout
+                }
+
+                layout.editText?.highlightColor = color
+                layout.editText?.setHintTextColor(color)
+                layout.editText?.setTextColor(color)
+
+                val fDefaultTextColor =
+                        TextInputLayout::class.java.getDeclaredField("mDefaultTextColor")
+                fDefaultTextColor.isAccessible = true
+                fDefaultTextColor.set(
+                        layout,
+                        ColorStateList(arrayOf(intArrayOf(0)), intArrayOf(color))
+                )
+
+                val fFocusedTextColor =
+                        TextInputLayout::class.java.getDeclaredField("mFocusedTextColor")
+                fFocusedTextColor.isAccessible = true
+                fFocusedTextColor.set(
+                        layout,
+                        ColorStateList(arrayOf(intArrayOf(0)), intArrayOf(color))
+                )
+        } catch (e : Exception) {
+                e.message?.let { Log.e("ERROR", it) }
         }
-
-        layout.editText?.highlightColor = color
-        layout.editText?.setHintTextColor(color)
-        layout.editText?.setTextColor(color)
-
-        val fDefaultTextColor = TextInputLayout::class.java.getDeclaredField("mDefaultTextColor")
-        fDefaultTextColor.isAccessible = true
-        fDefaultTextColor.set(layout, ColorStateList(arrayOf(intArrayOf(0)), intArrayOf(color)))
-
-        val fFocusedTextColor = TextInputLayout::class.java.getDeclaredField("mFocusedTextColor")
-        fFocusedTextColor.isAccessible = true
-        fFocusedTextColor.set(layout, ColorStateList(arrayOf(intArrayOf(0)), intArrayOf(color)))
-    } catch (e: Exception) {
-        Log.e("ERROR",e.message)
-    }
 
 }

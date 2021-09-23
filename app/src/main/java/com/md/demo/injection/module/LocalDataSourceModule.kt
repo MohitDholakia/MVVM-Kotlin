@@ -4,5 +4,5 @@ import com.md.demo.data.local.MyDatabase
 import org.koin.dsl.module.applicationContext
 
 val localDataSourceModule = applicationContext {
-    factory { MyDatabase.getInstance(get()) }
+        factory { MyDatabase.getInstance(get()) }
 }

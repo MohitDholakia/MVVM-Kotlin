@@ -1,20 +1,24 @@
 package com.md.demo.misc.ext
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.appcompat.app.AppCompatActivity
 import com.md.demo.misc.ViewLifecycleFragment
 
-fun <T> Any.observe(owner: LifecycleOwner, data: MutableLiveData<T>, function: (data: T?) -> Unit) {
-    data.observe(owner, androidx.lifecycle.Observer {
-        function(it)
-    })
+fun <T> Any.observe(
+        owner : LifecycleOwner,
+        data : MutableLiveData<T>,
+        function : (data : T?) -> Unit
+) {
+        data.observe(owner, androidx.lifecycle.Observer {
+                function(it)
+        })
 }
 
-fun <T> AppCompatActivity.observe(data: MutableLiveData<T>, function: (data: T?) -> Unit) {
-    data.observe(this@observe, androidx.lifecycle.Observer {
-        function(it)
-    })
+fun <T> AppCompatActivity.observe(data : MutableLiveData<T>, function : (data : T?) -> Unit) {
+        data.observe(this@observe, androidx.lifecycle.Observer {
+                function(it)
+        })
 }
 
 //
@@ -29,10 +33,10 @@ fun <T> AppCompatActivity.observe(data: MutableLiveData<T>, function: (data: T?)
 //        function(it)
 //    })
 //}
-fun <T> ViewLifecycleFragment.observe(data: MutableLiveData<T>, function: (data: T?) -> Unit) {
-    getViewLifecycleOwner()?.let {
-        data.observe(it, androidx.lifecycle.Observer {
-            function(it)
-        })
-    }
+fun <T> ViewLifecycleFragment.observe(data : MutableLiveData<T>, function : (data : T?) -> Unit) {
+        getViewLifecycleOwner()?.let {
+                data.observe(it, androidx.lifecycle.Observer {
+                        function(it)
+                })
+        }
 }

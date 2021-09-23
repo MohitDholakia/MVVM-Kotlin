@@ -12,53 +12,71 @@ import androidx.fragment.app.Fragment
 import com.md.demo.view.ViewConstants
 
 
-fun Activity.copytoClipBoard(label: String, value: String) {
-    val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-    val clip = ClipData.newPlainText(label, value)
-    clipboard.primaryClip = clip
+fun Activity.copytoClipBoard(label : String, value : String) {
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText(label, value)
+        clipboard.setPrimaryClip(clip)
 }
 
-fun Fragment.copytoClipBoard(label: String, value: String) {
-    activity?.copytoClipBoard(label, value)
+fun Fragment.copytoClipBoard(label : String, value : String) {
+        activity?.copytoClipBoard(label, value)
 }
 
-fun Activity.hasPermissions(): Boolean {
-    val permissions = arrayOf(Manifest.permission.CAMERA,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.ACCESS_FINE_LOCATION)
+fun Activity.hasPermissions() : Boolean {
+        val permissions = arrayOf(
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION
+        )
 
-    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        permissions
-                .filter { ActivityCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED }
-                .forEach { return false }
-    }
-    return true
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                permissions
+                        .filter {
+                                ActivityCompat.checkSelfPermission(
+                                        this,
+                                        it
+                                ) != PackageManager.PERMISSION_GRANTED
+                        }
+                        .forEach { return false }
+        }
+        return true
 }
 
 fun Activity.requestPermissions() {
-    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        var permissions = emptyArray<String>()
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                var permissions = emptyArray<String>()
 
-        //Camera
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            permissions += Manifest.permission.CAMERA
-        }
-        //Write storage
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            permissions += Manifest.permission.WRITE_EXTERNAL_STORAGE
-        }
+                //Camera
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED
+                ) {
+                        permissions += Manifest.permission.CAMERA
+                }
+                //Write storage
+                if (ActivityCompat.checkSelfPermission(
+                                this,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        )
+                        != PackageManager.PERMISSION_GRANTED
+                ) {
+                        permissions += Manifest.permission.WRITE_EXTERNAL_STORAGE
+                }
 
-        //Location
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            permissions += Manifest.permission.ACCESS_FINE_LOCATION
-        }
+                //Location
+                if (ActivityCompat.checkSelfPermission(
+                                this,
+                                Manifest.permission.ACCESS_FINE_LOCATION
+                        )
+                        != PackageManager.PERMISSION_GRANTED
+                ) {
+                        permissions += Manifest.permission.ACCESS_FINE_LOCATION
+                }
 
-        if (permissions.isNotEmpty()) {
-            ActivityCompat.requestPermissions(this,
-                    permissions, ViewConstants.REQUEST_APP_PERMISSIONS)
+                if (permissions.isNotEmpty()) {
+                        ActivityCompat.requestPermissions(
+                                this,
+                                permissions, ViewConstants.REQUEST_APP_PERMISSIONS
+                        )
+                }
         }
-    }
 }

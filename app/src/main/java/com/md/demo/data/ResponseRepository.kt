@@ -1,28 +1,31 @@
 package com.md.demo.data
 
 import com.md.demo.data.local.MyDatabase
-import com.md.demo.data.model.ResponseBean
-import com.md.demo.data.remote.dto.ListResponse
+import com.md.demo.data.model.UserResult
 import com.md.demo.data.remote.endpoint.WebService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class ResponseRepository(private val remoteDataSource: WebService,
-                         private val localDataSource: MyDatabase) {
+class ResponseRepository(
+        private val remoteDataSource : WebService,
+        private val localDataSource : MyDatabase
+) {
 
-
-    suspend fun getRecords(): List<ResponseBean> {
-        //remote data source Request
-        return if (localDataSource.myDao().getDbList().isNotEmpty()) {
-            localDataSource.myDao().getDbList();
-        } else {
-            val list = remoteDataSource.getRes()
-            list.body()?.mData?.forEach {
-                localDataSource.myDao().insert(it)
-            }
-            list.body()?.mData!!
+        suspend fun getRecords() : List<UserResult> {
+                //remote data source Request
+                val list = remoteDataSource.getRes()
+                localDataSource.myDao().deleteAll().apply {
+                        list.body()?.results?.forEach {
+                                localDataSource.myDao().insert(it)
+                        }
+                        return list.body()?.results!!
+                }
         }
-    }
+
+        suspend fun getOfflineRecords() : List<UserResult> {
+                if (localDataSource.myDao().getDbList().isNotEmpty()) {
+                        return localDataSource.myDao().getDbList();
+                }
+                return emptyList()
+        }
+
 
 }
