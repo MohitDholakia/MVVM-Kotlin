@@ -15,9 +15,8 @@ import kotlinx.android.synthetic.main.fragment_list.*
 import org.koin.android.architecture.ext.viewModel
 
 class ListFragment : BaseFragment() {
-        val viewModel : ListViewModel by viewModel()
-        var binding : FragmentListBinding? = null
-
+        private val viewModel : ListViewModel by viewModel()
+        private lateinit var binding : FragmentListBinding
         private lateinit var adapter : ListAdapter
 
         override fun onCreateView(
@@ -26,19 +25,19 @@ class ListFragment : BaseFragment() {
                 savedInstanceState : Bundle?
         ) : View? {
                 binding = FragmentListBinding.inflate(inflater, container, false)
-                return binding?.root
+                return binding.root
         }
 
         override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
                 super.onViewCreated(view, savedInstanceState)
                 viewModel.getList()
-                adapter = ListAdapter(this)
+                adapter = ListAdapter()
                 setupRecyclerView()
                 setupObservers()
         }
 
         private fun setupObservers() {
-                //Current currency
+                //List
                 observe(viewModel.list) {
                         it?.let {
                                 adapter.dataList = it

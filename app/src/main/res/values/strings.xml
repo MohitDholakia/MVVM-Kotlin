@@ -12,4 +12,6 @@
     <string name="error_connection_timeout">Time Out</string>
     <string name="error_io_exception">error_io_exception</string>
     <string name="error_unauthorized">error_unauthorized</string>
+    <string name="title">Title</string>
+    <string name="mobile">Mobile</string>
 </resources>

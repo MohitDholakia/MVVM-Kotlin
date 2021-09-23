@@ -12,10 +12,10 @@ class MainActivity : BaseActivity() {
         override fun onCreate(savedInstanceState : Bundle?) {
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.activity_main)
-                showMovieFragment()
+                showListFragment()
         }
 
-        private fun showMovieFragment() {
+        private fun showListFragment() {
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.container, ListFragment())
                         .commit()

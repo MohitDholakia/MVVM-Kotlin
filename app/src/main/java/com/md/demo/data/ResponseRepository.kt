@@ -20,7 +20,7 @@ class ResponseRepository(
                 }
         }
 
-        suspend fun getOfflineRecords() : List<UserResult> {
+        fun getOfflineRecords() : List<UserResult> {
                 if (localDataSource.myDao().getDbList().isNotEmpty()) {
                         return localDataSource.myDao().getDbList();
                 }

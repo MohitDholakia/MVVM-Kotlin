@@ -56,7 +56,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
                             android:scaleType="centerCrop"
-                            android:src="@mipmap/ic_launcher"
+                            android:background="@android:color/darker_gray"
+                            app:image="@{viewmodel.model.Picture.large}"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -78,6 +79,18 @@
                     android:layout_height="wrap_content"
                     android:minHeight="500dp">
 
+                    <TextView
+                        android:id="@+id/txtTitlePH"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/title"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
 
                     <TextView
                         android:id="@+id/txtTitle"
@@ -89,7 +102,19 @@
                         android:textSize="20sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtTitlePH" />
+
+                    <TextView
+                        android:id="@+id/txtMobileNumberPH"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/mobile"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
 
                     <TextView
                         android:id="@+id/txtMobileNumber"
@@ -98,10 +123,10 @@
                         android:padding="10dp"
                         android:text="@{viewmodel.model.phone}"
                         android:textColor="#000"
-                        android:textSize="12sp"
+                        android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtMobileNumberPH" />
 
 
                     <TextView
@@ -121,10 +146,10 @@
                         android:id="@+id/txtDescriptionDetail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:text="@{viewmodel.model.location.city+' '+viewmodel.model.location.state+' '+viewmodel.model.location.country+' '+viewmodel.model.location.postcode}"
                         android:textColor="#000"
-                        android:textSize="12sp"
+                        android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
@@ -149,7 +174,7 @@
                         android:text="@{viewmodel.model.email}"
                         android:textColor="#000"
                         android:textSize="12sp"
-                        android:padding="10dp"
+                        android:padding="10sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtEmail" />

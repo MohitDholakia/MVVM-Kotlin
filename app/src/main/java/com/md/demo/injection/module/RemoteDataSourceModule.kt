@@ -15,10 +15,10 @@ import java.util.concurrent.TimeUnit
 
 val remoteDatasourceModule = applicationContext {
 
-        //RequestInterceptor
+        //Request Interceptor
         bean { provideRequestInterceptor() }
 
-        //LoggingInterceptop
+        //Logging Interceptor
         bean { provideLoggingInterceptor() }
 
         // provided web components
@@ -30,7 +30,7 @@ val remoteDatasourceModule = applicationContext {
 }
 
 /**
- * Prove o parser de Json para a aplicação
+ * Try Json's parse for the application
  */
 fun provideGson() : Gson {
         val builder = GsonBuilder()
@@ -50,17 +50,17 @@ fun provideGson() : Gson {
 
 
 /**
- * Prove o interceptor das requisições. Utilizado para adicionar header de token, por exemplo.
+ * Try the interceptor of the requests. Used to add token header, for example.
  */
 fun provideRequestInterceptor() : RequestInterceptor {
         return RequestInterceptor()
 }
 
 /**
- * Provê o interceptor de logging das requisições
+ * Provides the requests logging interceptor
  */
 fun provideLoggingInterceptor() : HttpLoggingInterceptor {
-        //Adiciona log às requisições
+        //Add log to requests
         val logInterceptor = HttpLoggingInterceptor()
         logInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
@@ -68,7 +68,7 @@ fun provideLoggingInterceptor() : HttpLoggingInterceptor {
 }
 
 /**
- * Provê o httpClient padrão para o App
+ * Provides the default httpClient for the App
  */
 fun provideOkHttpClient(
         requestInterceptor : RequestInterceptor,
@@ -77,7 +77,7 @@ fun provideOkHttpClient(
 
         val builder = UnsafeOkHttpClient.getUnsafeOkHttpClient()
 
-        //Adiciona os interceptors
+        //Add interceptors
         builder.addInterceptor(logInterceptor)
         builder.addInterceptor(requestInterceptor)
 
@@ -89,7 +89,7 @@ fun provideOkHttpClient(
 }
 
 /**
- * Provê o endpoint service para a aplicação
+ * Provides the endpoint service for the application
  */
 fun provideRemoteDataSource(okHttpClient : OkHttpClient, gson : Gson) : WebService {
         return Retrofit.Builder()
