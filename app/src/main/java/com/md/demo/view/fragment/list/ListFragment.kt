@@ -25,9 +25,7 @@ class ListFragment : BaseFragment() {
                 container : ViewGroup?,
                 savedInstanceState : Bundle?
         ) : View? {
-                if (binding == null) {
-                        binding = FragmentListBinding.inflate(inflater, container, false)
-                }
+                binding = FragmentListBinding.inflate(inflater, container, false)
                 return binding?.root
         }
 

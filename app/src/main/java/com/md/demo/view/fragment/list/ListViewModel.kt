@@ -18,11 +18,9 @@ class ListViewModel(private val repository : ResponseRepository) : AbstractViewM
                         try {
                                 //The data is loading
                                 launch(Dispatchers.Main) {
-                                        //setLoading()
+                                        setLoading()
                                 }
-                                //Request with a suspended repository funcion
-
-                                var dtoRes = repository.getOfflineRecords()
+                                val dtoRes = repository.getOfflineRecords()
                                 launch(Dispatchers.Main) {
                                         list.value = dtoRes
                                 }
@@ -34,7 +32,6 @@ class ListViewModel(private val repository : ResponseRepository) : AbstractViewM
                                 //An error was throw
                                 launch(Dispatchers.Main) {
                                         setError(t)
-                                        list.value = emptyList()
                                 }
                         } finally {
                                 //Isn't loading anymore

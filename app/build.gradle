@@ -120,7 +120,5 @@ dependencies {
 
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    /* implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
-     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"*/
 }
 apply plugin: 'androidx.navigation.safeargs'

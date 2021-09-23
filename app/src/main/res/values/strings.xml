@@ -5,4 +5,11 @@
     <string name="desccription">Description</string>
     <string name="description">Description</string>
     <string name="address">Address</string>
+    <string name="location">Location</string>
+    <string name="email">Email</string>
+    <string name="error_something_went_wrong">Something went wrong</string>
+    <string name="error_internal_server">Internal Server Error</string>
+    <string name="error_connection_timeout">Time Out</string>
+    <string name="error_io_exception">error_io_exception</string>
+    <string name="error_unauthorized">error_unauthorized</string>
 </resources>

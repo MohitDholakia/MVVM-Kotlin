@@ -37,7 +37,8 @@ class ListAdapter(var fragment : Fragment) :
 
         override fun onBindViewHolder(holder : RecyclerViewAdapterViewHolder, position : Int) {
                 val data = dataList[position]
-                holder.textViewTitle.text = data.name.title
+                holder.textViewTitle.text =
+                        """${data.name.title} ${data.name.first} ${data.name.last}"""
 
                 Glide.with(holder.textViewTitle.context)
                         .load(data.picture.thumbnail)
