@@ -29,10 +29,12 @@ open class ViewLifecycleFragment : Fragment() {
                 }
         }
 
+
         /**
          * @return the Lifecycle owner of the current view hierarchy,
          * or null if there is no current view hierarchy.
          */
+
         override fun getViewLifecycleOwner() : LifecycleOwner {
                 return this.viewLifecycleOwner!!
         }
