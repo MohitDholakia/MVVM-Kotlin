@@ -15,6 +15,7 @@ import androidx.lifecycle.LifecycleRegistry
  *
  * @author Christophe Beyls
  */
+
 open class ViewLifecycleFragment : Fragment() {
 
         private var viewLifecycleOwner : ViewLifecycleOwner? = null
