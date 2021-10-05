@@ -20,6 +20,7 @@ open class ViewLifecycleFragment : Fragment() {
 
         private var viewLifecycleOwner : ViewLifecycleOwner? = null
 
+
         internal class ViewLifecycleOwner : LifecycleOwner {
                 private val lifecycleRegistry = LifecycleRegistry(this)
 
